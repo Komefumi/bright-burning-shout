@@ -3,8 +3,6 @@ import chokidar from "chokidar";
 import path from "path";
 import fs from "fs";
 
-const staticPathPrefix = "/static/";
-
 interface PageConfigInterface {
   title: string;
   templateName: string;
@@ -96,15 +94,13 @@ function writePage(pagePath: string) {
     // @ts-ignore
     const src = $injection(this).prop("src");
     $finalPage("body").append(`
-        <script type="text/javascript" src="${staticPathPrefix}${src}"></script>
-      `);
+        <script type="text/javascript" src="${src}"></script>
+    `);
   });
   $injection("link", "#style-sheets").each(function () {
     // @ts-ignore
     const src = $injection(this).prop("href");
-    $finalPage("head").append(
-      `<link rel="stylesheet" href="${staticPathPrefix}${src}" />`
-    );
+    $finalPage("head").append(`<link rel="stylesheet" href="${src}" />`);
   });
   $finalPage("#main-content").html(
     $injection("#main-content").html() as string
