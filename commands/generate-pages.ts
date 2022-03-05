@@ -22,9 +22,11 @@ const templatesPath = path.join(ultimateRoot, "config/templates");
 const pagesSrcPath = path.join(ultimateRoot, "src", "pages");
 const pagesDistPath = path.join(ultimateRoot, "dist", "pages");
 
+const devMode = process.argv.includes("--just-write") ? false : true;
+
 compileAllPages();
 
-if (process.argv.includes("--just-write")) {
+if (!devMode) {
   process.exit(0);
 }
 
@@ -99,7 +101,7 @@ function writePage(pagePath: string) {
   });
   $injection("link", "#style-sheets").each(function () {
     // @ts-ignore
-    const src = $injection(this).prop("src");
+    const src = $injection(this).prop("href");
     $finalPage("head").append(
       `<link rel="stylesheet" href="${staticPathPrefix}${src}" />`
     );
@@ -107,6 +109,14 @@ function writePage(pagePath: string) {
   $finalPage("#main-content").html(
     $injection("#main-content").html() as string
   );
+
+  if (devMode) {
+    $finalPage("body").append(`
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +':35729/livereload.js?snipver=1"></' + 'script>')
+    </script>
+    `);
+  }
   const distPathForPage = getDistPathForSrcPage(pagePath);
   const containingPathInDist = path.dirname(distPathForPage);
   fs.mkdirSync(containingPathInDist, { recursive: true });
