@@ -15,14 +15,17 @@ if (process.argv.includes("--just-write")) {
 runWatcher();
 
 function runWatcher() {
-  chokidar.watch(pathToModuleEntriesSrc).on("all", (_event, filePath) => {
-    if (!fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
-      return;
-    }
-    const newConfig = generateWebpackConfig();
-    const compiler = webpack(newConfig);
-    compiler.run(onRunCompiler);
-  });
+  chokidar
+    .watch(pathToModuleEntriesSrc)
+    .on("all", (_event, filePath: string) => {
+      if (!fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
+        return;
+      }
+      console.log({ filePath });
+      const newConfig = generateWebpackConfig(filePath);
+      const compiler = webpack(newConfig);
+      compiler.run(onRunCompiler);
+    });
   console.log("Modules watch initiated");
 }
 
