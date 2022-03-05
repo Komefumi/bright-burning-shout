@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev-run": "concurrently --kill-others \"ts-node commands/generate-pages.ts\" \"ts-node commands/generate-modules.ts\" \"sass -w src/sass/:dist/styles/\""
+    "dev-run": "concurrently --kill-others \"ts-node commands/generate-pages.ts\" \"ts-node commands/generate-modules.ts\" \"sass -w src/sass/:dist/styles/\" livereload"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +23,7 @@
     "clean-webpack-plugin": "^4.0.0",
     "concurrently": "^7.0.0",
     "css-loader": "^6.7.0",
+    "livereload": "^0.9.3",
     "mini-css-extract-plugin": "^2.6.0",
     "prettier": "^2.5.1",
     "sass-loader": "^12.6.0",
