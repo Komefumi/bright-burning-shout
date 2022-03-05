@@ -22,12 +22,6 @@ const templatesPath = path.join(ultimateRoot, "config/templates");
 const pagesSrcPath = path.join(ultimateRoot, "src", "pages");
 const pagesDistPath = path.join(ultimateRoot, "dist", "pages");
 
-const pageArgIndex = process.argv.findIndex((arg) => {
-  if (arg.startsWith("--page=")) {
-    return true;
-  }
-});
-
 compileAllPages();
 
 if (process.argv.includes("--just-write")) {
