@@ -1,0 +1,21 @@
+{
+  "name": "frontend-config",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tsconfig/node16": "^1.0.2",
+    "@types/cheerio": "^0.22.31",
+    "cheerio": "^1.0.0-rc.10",
+    "prettier": "^2.5.1",
+    "sass": "^1.49.9",
+    "ts-node": "^10.6.0",
+    "typescript": "^4.6.2"
+  }
+}
