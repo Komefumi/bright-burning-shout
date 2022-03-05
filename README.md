@@ -1,5 +1,11 @@
 # Bright Burning Shout
 
+## Hold Up
+
+Want to know where I got the name from? [Here](https://www.youtube.com/watch?v=BIZ-4jUJLk8)
+
+---
+
 This is (yet another) project template. It was supposed to utilize Golang, but I've decided to go with node instead for any purpose I would have satisfied with Go.
 
 The reason being that I couldn't get a clean enough solution for file watching with fsnotify.
