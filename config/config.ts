@@ -10,4 +10,6 @@ const pathToModuleEntriesDist = path.join(
   "dist/module-entries"
 );
 
-export { pathToModuleEntriesSrc, pathToModuleEntriesDist };
+const pathToDist = path.join(pathToProjectRoot, "dist");
+
+export { pathToModuleEntriesSrc, pathToModuleEntriesDist, pathToDist };

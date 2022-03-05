@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev-run": "concurrently --kill-others \"ts-node commands/generate-pages.ts\" \"ts-node commands/generate-modules.ts\" \"sass -w src/sass/:dist/styles/\" livereload"
+    "dev-run": "concurrently --kill-others \"ts-node commands/generate-pages.ts\" \"ts-node commands/generate-modules.ts\" \"sass -w src/sass/:dist/styles/\" \"ts-node config/server/server.ts\" livereload"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +17,8 @@
     "@tsconfig/node16": "^1.0.2",
     "@types/cheerio": "^0.22.31",
     "@types/jquery": "^3.5.14",
+    "@types/koa": "^2.13.4",
+    "@types/koa-static": "^4.0.2",
     "babel-loader": "^8.2.3",
     "cheerio": "^1.0.0-rc.10",
     "chokidar": "^3.5.3",
@@ -34,6 +36,8 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "jquery": "^3.6.0"
+    "jquery": "^3.6.0",
+    "koa": "^2.13.4",
+    "koa-static": "^5.0.0"
   }
 }
